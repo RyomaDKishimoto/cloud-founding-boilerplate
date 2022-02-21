@@ -25,7 +25,7 @@ const TopSection: NextPage = () => {
                 カントリーロードは、クラブの記録を長く残していくことを目的として、チーム名がベガルタ仙台に変わった1999年から発行を重ねてまいりました。しかし、ここ数年の販売部数減少により、採算が厳しい現状を受け、クラウドファンディングによるプロジェクトを起案いたしました。ぜひご協力をお願いいたします。
               </div>
             </div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-4 py-4 px-6">
               <div className="col-span-2 bg-white dark:bg-gray-800 lg:col-span-1 xl:col-span-1">
                 <FacebookBtn />
               </div>
