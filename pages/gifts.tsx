@@ -25,7 +25,7 @@ const Gifts: NextPage = () => {
   return (
     <div>
       <p className="text-xl tracking-wider text-center text-gray-500 dark:text-gray-300">
-        Choose your plan
+        Choose your return
       </p>
 
       <h1 className="mt-4 mb-12 text-3xl font-semibold tracking-wider text-center text-gray-600 dark:text-white capitalize">

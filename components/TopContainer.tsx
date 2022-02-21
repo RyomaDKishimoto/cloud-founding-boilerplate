@@ -21,7 +21,7 @@ const TopSection: NextPage = () => {
               alt="Sunset in the mountains"
             />
             <div className="py-4 px-6">
-              <div className="mb-2 text-xl font-normal tracking-wider text-gray-600 dark:text-white">
+              <div className="mb-2 text-xl font-normal tracking-wider text-gray-600 dark:text-gray-400">
                 カントリーロードは、クラブの記録を長く残していくことを目的として、チーム名がベガルタ仙台に変わった1999年から発行を重ねてまいりました。しかし、ここ数年の販売部数減少により、採算が厳しい現状を受け、クラウドファンディングによるプロジェクトを起案いたしました。ぜひご協力をお願いいたします。
               </div>
             </div>

@@ -14,8 +14,8 @@ export default async function handler(
   if (req.method === "POST") {
     const { amount, items } = req.body;
     const selectedItems = items
-      .filter((item: { selected: any }) => item.selected)
-      .map((item: { apiId: any; quantity: any }) => {
+      .filter((item: { selected: boolean }) => item.selected)
+      .map((item: { apiId: string; quantity: number }) => {
         return {
           adjustable_quantity: {
             enabled: true,

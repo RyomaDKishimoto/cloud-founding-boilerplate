@@ -24,7 +24,6 @@ export default function ResultModal({
         as="div"
         className="overflow-y-auto fixed inset-0 z-10"
         initialFocus={cancelButtonRef}
-        // onClose={setOpen}
         onClose={() => true}
       >
         <div className="flex justify-center items-center px-4 pt-4 pb-20 min-h-screen text-center sm:block sm:p-0">
