@@ -6,14 +6,14 @@ import CtaSection from "@/components/CtaSection";
 import MiddleContainer from "@/components/MiddleContainer";
 import TopContainer from "@/components/TopContainer";
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const amount = await prisma.donate.findFirst({ where: { id: 1 } });
-  const jsonDonate = JSON.parse(JSON.stringify(amount));
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const amount = await prisma.donate.findFirst({ where: { id: 1 } });
+//   const jsonDonate = JSON.parse(JSON.stringify(amount));
+//   return {
+//     props: jsonDonate,
+//   };
+// };
 
-  return {
-    props: jsonDonate,
-  };
-};
 const Home: NextPage = () => {
   return (
     <div>
