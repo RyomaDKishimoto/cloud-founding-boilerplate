@@ -1,18 +1,8 @@
 import type { NextPage } from "next";
-import { GetServerSideProps } from "next";
 import Head from "next/head";
-import prisma from "../lib/prisma";
 import CtaSection from "@/components/CtaSection";
 import MiddleContainer from "@/components/MiddleContainer";
 import TopContainer from "@/components/TopContainer";
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const amount = await prisma.donate.findFirst({ where: { id: 1 } });
-//   const jsonDonate = JSON.parse(JSON.stringify(amount));
-//   return {
-//     props: jsonDonate,
-//   };
-// };
 
 const Home: NextPage = () => {
   return (
