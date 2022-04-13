@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { useEffect, useState } from "react";
 import InstagramBtn from "../components/social-icons/InstagramBtn";
 import LineBtn from "../components/social-icons/LineBtn";
 import Profile from "./Profile";
@@ -6,7 +7,39 @@ import ProgressBar from "./ProgressBar";
 import FacebookBtn from "./social-icons/FaceBookBtn";
 import TwitterBtn from "./social-icons/TwitterBtn";
 
+export type DonateType = {
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+  amount: number;
+  goalAmount: number;
+};
+
 const TopSection: NextPage = () => {
+  const [loadDonate, setLoadDonate] = useState(true);
+  const [donate, setDonate] = useState<DonateType>({
+    id: 1,
+    createdAt: new Date("2022-04-13T13:52:05.485Z"),
+    updatedAt: new Date("2022-04-13T13:51:22.104Z"),
+    amount: 950000,
+    goalAmount: 1000000,
+  });
+
+  useEffect(() => {
+    async function load() {
+      if (!loadDonate) {
+        return;
+      }
+      const donate = await fetch("./netlify/functions/donate").then((res) =>
+        res.json()
+      );
+      setDonate(donate);
+      setLoadDonate(false);
+    }
+    load();
+    console.log(donate);
+  }, [loadDonate]);
+
   return (
     <>
       <h1 className="mt-4 mb-6 text-3xl font-medium tracking-wider text-center text-gray-600 dark:text-white capitalize lg:text-4xl">
@@ -47,9 +80,9 @@ const TopSection: NextPage = () => {
               現在の支援総額
             </div>
             <h5 className="mb-4 text-5xl font-medium text-gray-900 dark:text-white">
-              2,339,000円
+              {donate.amount}円
             </h5>
-            <ProgressBar />
+            <ProgressBar {...donate} />
           </div>
           <Profile />
         </div>
