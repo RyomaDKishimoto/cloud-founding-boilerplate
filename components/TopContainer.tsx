@@ -21,8 +21,8 @@ const TopSection: NextPage = () => {
     id: 1,
     createdAt: new Date("2022-04-13T13:52:05.485Z"),
     updatedAt: new Date("2022-04-13T13:51:22.104Z"),
-    amount: 950000,
-    goalAmount: 1000000,
+    amount: 0,
+    goalAmount: 0,
   });
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const TopSection: NextPage = () => {
       if (!loadDonate) {
         return;
       }
-      const donate = await fetch("./netlify/functions/donate").then((res) =>
+      const donate = await fetch("../netlify/functions/donate").then((res) =>
         res.json()
       );
       setDonate(donate);
