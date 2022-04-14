@@ -30,7 +30,7 @@ const TopSection: NextPage = () => {
       if (!loadDonate) {
         return;
       }
-      const donate = await fetch("../netlify/functions/donate").then((res) =>
+      const donate = await fetch("/.netlify/functions/donate").then((res) =>
         res.json()
       );
       setDonate(donate);
