@@ -37,7 +37,6 @@ const TopSection: NextPage = () => {
       setLoadDonate(false);
     }
     load();
-    console.log(donate);
   }, [loadDonate]);
 
   return (

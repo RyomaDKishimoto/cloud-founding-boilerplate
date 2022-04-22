@@ -2,7 +2,10 @@ import type { NextPage } from "next";
 import { DonateType } from "./TopContainer";
 
 const ProgressBar: NextPage<DonateType> = (donate) => {
-  const achievementRate = (donate.amount / donate.goalAmount) * 100;
+  const achievementRate =
+    donate.amount === 0 && donate.goalAmount === 0
+      ? 0
+      : (donate.amount / donate.goalAmount) * 100;
   return (
     <div className="relative pt-1">
       <div className="flex justify-between items-center mb-2">

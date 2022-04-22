@@ -20,7 +20,6 @@ export default async function handler(
       await stripe.checkout.sessions.retrieve(id, {
         expand: ["payment_intent"],
       });
-    res.status(200).json(checkout_session);
     await prisma.donate.update({
       where: { id: 1 },
       data: {
@@ -31,6 +30,7 @@ export default async function handler(
         },
       },
     });
+    res.status(200).json(checkout_session);
   } catch (err) {
     const errorMessage =
       err instanceof Error ? err.message : "Internal server error";
