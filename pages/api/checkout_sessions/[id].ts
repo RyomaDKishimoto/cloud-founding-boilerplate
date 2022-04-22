@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
+import prisma from "../../../lib/prisma";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_API_KEY!, {
   // https://github.com/stripe/stripe-node#configuration
@@ -20,6 +21,16 @@ export default async function handler(
         expand: ["payment_intent"],
       });
     res.status(200).json(checkout_session);
+    await prisma.donate.update({
+      where: { id: 1 },
+      data: {
+        amount: {
+          increment: checkout_session.amount_total
+            ? checkout_session.amount_total
+            : undefined,
+        },
+      },
+    });
   } catch (err) {
     const errorMessage =
       err instanceof Error ? err.message : "Internal server error";
